@@ -33,6 +33,7 @@
 
                     </table>
 
+                    
                     {{ $model->links('pagination.home') }}
                 </div>
             </div>
