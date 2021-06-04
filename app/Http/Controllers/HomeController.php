@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $model = Pengaduan::where('nik', Auth::user()->nik)
-                    ->paginate(1);
+                    ->paginate(10);
 
         return view('home')->with([
             'model' => $model

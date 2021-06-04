@@ -19,8 +19,8 @@
                           <tr>
                             <th scope="col">Nama</th>
                             <th scope="col">Isi Laporan</th>
-                            <th scope="col">Foto Laporan</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Aksi</th>
                           </tr>
                         </thead>
 
@@ -29,12 +29,13 @@
                             <tr>
                                 <td>{{$value->user->nama}}</td>
                                 <td>{{$value->isi_laporan}}</td>
+                                <td>{{$value->status}}</td>
                                 <td>
-                                    @if($value->foto)
-                                    <img src="{{asset('storage/pengaduan/' . $value->foto)}}" class="img-fluid" >
+                                    @if($value->status == '0')
+                                    <a class="btn btn-primary" href="{{route('pengaduan.edit', ['pengaduan' => $value->id])}}" >Edit</a>
+                                    <a class="btn btn-danger" href="{{route('pengaduan.destroy', ['pengaduan' => $value->id])}}" >Hapus</a>
                                     @endif
                                 </td>
-                                <td>{{$value->status}}</td>
                             </tr>
                             @endforeach
                         </tbody>
