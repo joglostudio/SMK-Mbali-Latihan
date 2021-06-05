@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     | Default Database Connection Name
     |--------------------------------------------------------------------------
-    |
+    | questions/67830709/how-to-make-laravel-8-laravel-ui-auth-multiple-different-table
     | Here you may specify which of the database connections below you wish
     | to use as your default connection for all database work. Of course
     | you may use many connections at once using the Database library.
