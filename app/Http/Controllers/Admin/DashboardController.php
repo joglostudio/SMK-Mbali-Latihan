@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
+use App\Models\Tanggapan;
 use Auth;
 
 class DashboardController extends Controller
@@ -61,7 +62,15 @@ class DashboardController extends Controller
         ]);
 
         $pengaduan->status = $request->input('status');
-        $pengaduan->save();
+        if($pengaduan->save()) {
+            $model = new Tanggapan;
+            $model->id_pengaduan = $pengaduan->id;
+            $model->tanggapan = $request->input('tanggapan');
+            $model->tgl_tanggapan = date('Y-m-d');
+            $model->id_petugas  = Auth::guard('admin')->user()->id;
+            $model->save();
+            
+        }
         
         return redirect()->route('admin.dashboard');
 

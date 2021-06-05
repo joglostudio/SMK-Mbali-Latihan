@@ -20,6 +20,7 @@
                             <th scope="col">Nama</th>
                             <th scope="col">Isi Laporan</th>
                             <th scope="col">Foto Laporan</th>
+                            <th scope="col">Jumlah Tanggapan</th>
                             <th scope="col">Status</th>
                           </tr>
                         </thead>
@@ -28,11 +29,17 @@
                             @foreach($model as $key => $value) 
                             <tr>
                                 <td>{{$value->user->nama}}</td>
-                                <td>{{$value->isi_laporan}}</td>
+                                <td>{{$value->isi_laporan}}</td>                                
                                 <td>
                                     @if($value->foto)
                                     <img src="{{asset('storage/pengaduan/' . $value->foto)}}" class="img-fluid" >
                                     @endif
+                                </td>
+                                <td>
+                                    {{$value->tanggapan->count()}} <hr>
+                                    @foreach($value->tanggapan as $k => $v)
+                                        {{$v->tanggapan}}<hr>
+                                    @endforeach
                                 </td>
                                 <td>{{$value->status}}</td>
                             </tr>
