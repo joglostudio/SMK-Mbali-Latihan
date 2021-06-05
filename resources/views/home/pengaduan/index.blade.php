@@ -31,7 +31,7 @@
                                 <td>{{$value->isi_laporan}}</td>
                                 <td>{{$value->status}}</td>
                                 <td>
-                                    @if($value->status == '0')
+                                    @if($value->status == '0') 
                                     <a class="btn btn-primary" href="{{route('pengaduan.edit', ['pengaduan' => $value->id])}}" >Edit</a>
                                     <a class="btn btn-danger" href="{{route('pengaduan.destroy', ['pengaduan' => $value->id])}}" >Hapus</a>
                                     @endif

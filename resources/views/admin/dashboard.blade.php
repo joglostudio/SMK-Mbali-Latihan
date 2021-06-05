@@ -31,9 +31,7 @@
                                 <td>{{$value->isi_laporan}}</td>
                                 <td>{{$value->status}}</td>
                                 <td>
-                                    @if($value->status == '0')
                                     <a class="btn btn-primary" href="{{route('admin.dashboard.pengaduan.edit', ['pengaduan' => $value->id])}}" >Edit</a>
-                                    @endif
                                 </td>
                             </tr>
                             @endforeach
